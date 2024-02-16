@@ -23,64 +23,65 @@ def question1():
     level2_left = {}
     level2_right = {}
 
-    level1["smoking"] = 1.0
-    level1["smoking_info_gain"] = 0.2780719051126377
+    level1["smoking"] = 1 # 0.72
+    level1["smoking_info_gain"] = 0.2781
 
-    level1["cough"] = -1
-    level1["cough_info_gain"] = 0.034851554559677034
+    level1["cough"] = -1 # 0.97
+    level1["cough_info_gain"] = 0.0349
 
-    level1["radon"] = -1
-    level1["radon_info_gain"] = 0.2364527976600279
+    level1["radon"] = -1 # 0.76
+    level1["radon_info_gain"] = 0.2365
 
-    level1["weight_loss"] = -1
-    level1["weight_loss_info_gain"] = 0.02904940554533142
+    level1["weight_loss"] = -1 # 0.97
+    level1["weight_loss_info_gain"] = 0.029
 
     level2_left["smoking"] = -1
-    level2_left["smoking_info_gain"] = 0
-
+    level2_left["smoking_info_gain"] = -1
     level2_right["smoking"] = -1
-    level2_right["smoking_info_gain"] = 0
+    level2_right["smoking_info_gain"] = -1
 
-    level2_left["radon"] = -1
-    level2_left["radon_info_gain"] = 0
+    level2_left["radon"] = 1
+    level2_left["radon_info_gain"] = 0.7219
 
-    level2_left["cough"] = 1.0
-    level2_left["cough_info_gain"] = 0.7219280948873623
+    level2_left["cough"] = -1
+    level2_left["cough_info_gain"] = 0.3219
 
     level2_left["weight_loss"] = -1
-    level2_left["weight_loss_info_gain"] = -1
+    level2_left["weight_loss_info_gain"] = 0.171
 
-    level2_right["radon"] = 1.0
-    level2_right["radon_info_gain"] = 0.7219280948873623
+    level2_right["radon"] = 1
+    level2_right["radon_info_gain"] = 0.7219
 
     level2_right["cough"] = -1
-    level2_right["cough_info_gain"] = -1
+    level2_right["cough_info_gain"] = 0.3219
 
     level2_right["weight_loss"] = -1
-    level2_right["weight_loss_info_gain"] = -1
+    level2_right["weight_loss_info_gain"] = 0.171
 
     answer["level1"] = level1
     answer["level2_left"] = level2_left
     answer["level2_right"] = level2_right
 
-    # Fill up construct_tree`
-    # tree, training_error = construct_tree() 
-        
-    tree = u.BinaryTree('Smoking Tobacco')
-
-    cough = tree.insert_left('Chronic Cough')
-    radon = tree.insert_left('Radon Exposure')
-
-    cough.insert_right(1)
-    cough.insert_left(4)
-
-    radon.insert_left(1)
-    radon.insert_right(4)
-    answer["tree"] = tree  
+    # Fill up `construct_tree``
+    # tree, training_error = construct_tree()
+    tree = u.BinaryTree("smoking == Yes")  # MUST STILL CREATE THE TREE *****
+    A = tree.insert_left("cough = Yes")
+    B = tree.insert_right("randon == Yes")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("n")
+    B.insert_left("y")
+    B.insert_right("n")
+    B.insert_right("n")
+    B.insert_right("n")
+    B.insert_right("n")
+    # tree, training_error = construct_tree
+    # tree = U.BinaryTree("root")
+    answer["tree"] = tree  # use the Tree structure
+    # answer["training_error"] = training_error
     answer["training_error"] = 0.0  
-
-
-
 
     return answer
 
@@ -91,37 +92,22 @@ def question1():
 def question2():
     answer = {}
 
-    answer["(a) entropy_entire_data"] = 1.4253642047367425
-
-    answer["(b) x <= 0.2"] = 0.17739286055515824
-    answer["(b) x <= 0.7"] = 0.3557029418697566
-    answer["(b) y <= 0.6"] = 0.34781842724338197
+    # Answers are floats
+    answer["(a) entropy_entire_data"] = 0.
+    # Infogain
+    answer["(b) x <= 0.2"] = 0.
+    answer["(b) x <= 0.7"] = 0.
+    answer["(b) y <= 0.6"] = 0.
 
     # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
-    answer["(c) attribute"] = "y=0.6"  
+    answer["(c) attribute"] = ""  
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
-    tree = u.BinaryTree("y <= 0.6")
-    left = tree.insert_left("x <= 0.7")
-    right = tree.insert_right("x <= 0.2")
-
-    left.insert_left("B")
-    
-    y_03 = left.insert_right("y <= 0.3")
-    y_03.insert_left("A")
-    y_03.insert_right("C")
-
-    right.insert_right("A")
-    y_08 = right.insert_left("y <= 0.8")
-    y_08.insert_right("B")
-    y_08.insert_left("C")
-
+    tree = u.BinaryTree("Root")
     answer["(d) full decision tree"] = tree
 
     return answer
-
-
 
 
 # ----------------------------------------------------------------------
@@ -206,6 +192,7 @@ def question4():
 
     return answer
 
+
 # ----------------------------------------------------------------------
 
 
@@ -230,6 +217,7 @@ def question5():
 
     return explain
 
+
 # ----------------------------------------------------------------------
 def question6():
     answer = {}
@@ -239,29 +227,24 @@ def question6():
     # value of the form "z <= float" where "z" is "x" or "y"
     #  and "float" is a floating point number (notice: <=)
     # The value could also be "A" or "B" if it is a leaf
-    answer["a, level 1"] = "x <= 0.5"
-    answer["a, level 2, right"] ="A"
-    answer["a, level 2, left"] = "y <= 0.4"
-    answer["a, level 3, left"] = "A"
-    answer["a, level 3, right"] = "x <= 0.2"
+    answer["a, level 1"] = ""
+    answer["a, level 2, right"] =""
+    answer["a, level 2, left"] = ""
+    answer["a, level 3, left"] = ""
+    answer["a, level 3, right"] = ""
 
     # run each datum through the tree. Count the number of errors and divide by number of samples. .
     # Since we have areas: calculate the area that is misclassified (total area is unity)
     # float between 0 and 1
-    answer["b, expected error"] = 0.58
+    answer["b, expected error"] = 0.
 
     # Use u.BinaryTree to define the tree. Create your tree.
     # Replace "root node" by the proper node of the form "z <= float"
-    tree = u.BinaryTree("x <= 0.5")
+    tree = u.BinaryTree("root note")
 
-    A = tree.insert_right("A")
-    B = tree.insert_left("y <= 0.4")
-    B.insert_left("A")
-    B.insert_right("x <= 0.2")
     answer["c, tree"] = tree
+
     return answer
-
-
 
 
 # ----------------------------------------------------------------------
@@ -270,14 +253,14 @@ def question7():
 
     # float
     answer["a, info gain, ID"] = 1.0
-    answer["b, info gain, Handedness"] = 0.5310044
+    answer["b, info gain, Handedness"] = 0.561
 
     # string: "ID" or "Handedness"
-    answer["c, which attrib"] = "Handedness"
+    answer["c, which attrib"] = "ID"
 
     # answer is a float
-    answer["d, gain ratio, ID"] = 0.23137821315975915
-    answer["e, gain ratio, Handedness"] = 0.531
+    answer["d, gain ratio, ID"] = 'undefined'
+    answer["e, gain ratio, Handedness"] = 0.561
 
     # string: one of 'ID' or 'Handedness' based on gain ratio
     # choose the attribute with the largest gain ratio
@@ -288,7 +271,7 @@ def question7():
 
 # ----------------------------------------------------------------------
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     answers = {}
     answers["q1"] = question1()
     answers["q2"] = question2()
@@ -298,4 +281,4 @@ if _name_ == "_main_":
     answers["q6"] = question6()
     answers["q7"] = question7()
 
-    u.save_dict("answers.pkl", answers)
+    u.save_dict("answers.pkl", answers)
