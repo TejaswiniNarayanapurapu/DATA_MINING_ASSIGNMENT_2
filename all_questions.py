@@ -187,21 +187,20 @@ def question5():
     # Read appropriate section of book chapter 3
 
     # string: one of 'Model 1' or 'Model 2'
-    explain["a"] = ""
-    explain["a explain"] = ""
+    explain["a"] = "Model-2"
+    explain["a explain"] = "This is because model-2 is pruned version and it is less likely to overfit the data and have better performances on unseen data."
 
     # string: one of 'Model 1' or 'Model 2'
-    explain["b"] = ""
-    explain["b explain"] = ""
+    explain["b"] = "Model-1"
+    explain["b explain"] = "Even though Model 1 performed better on the combined dataset (A + B), Model 2 would be the better option for classification tasks because of its better generalization capabilities. Importantly for real-world applications, Model 2 is more likely to perform well on unknown situations and is less likely to overfit to the training data."
 
-    explain["c similarity"] = ""
-    explain["c similarity explain"] = ""
+    explain["c similarity"] = "Regularization"
+    explain["c similarity explain"] = "In order to aid in model selection and prevent overfitting, they both seek to incorporate model complexity into the loss function."
 
-    explain["c difference"] = ""
-    explain["c difference explain"] = ""
+    explain["c difference"] = "Criterion"
+    explain["c difference explain"] = "One difference between them is how they go about calculating model complexity, especially when it comes to decision trees."
 
     return explain
-
 
 # ----------------------------------------------------------------------
 def question6():
