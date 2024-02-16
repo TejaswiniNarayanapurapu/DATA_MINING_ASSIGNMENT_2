@@ -84,22 +84,36 @@ def question1():
 def question2():
     answer = {}
 
-    # Answers are floats
-    answer["(a) entropy_entire_data"] = 0.
-    # Infogain
-    answer["(b) x <= 0.2"] = 0.
-    answer["(b) x <= 0.7"] = 0.
-    answer["(b) y <= 0.6"] = 0.
+    answer["(a) entropy_entire_data"] = 1.4253642047367425
+
+    answer["(b) x <= 0.2"] = 0.17739286055515824
+    answer["(b) x <= 0.7"] = 0.3557029418697566
+    answer["(b) y <= 0.6"] = 0.34781842724338197
 
     # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
-    answer["(c) attribute"] = ""  
+    answer["(c) attribute"] = "y=0.6"  
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
-    tree = u.BinaryTree("Root")
+    tree = u.BinaryTree("y <= 0.6")
+    left = tree.insert_left("x <= 0.7")
+    right = tree.insert_right("x <= 0.2")
+
+    left.insert_left("B")
+    
+    y_03 = left.insert_right("y <= 0.3")
+    y_03.insert_left("A")
+    y_03.insert_right("C")
+
+    right.insert_right("A")
+    y_08 = right.insert_left("y <= 0.8")
+    y_08.insert_right("B")
+    y_08.insert_left("C")
+
     answer["(d) full decision tree"] = tree
 
     return answer
+
 
 
 # ----------------------------------------------------------------------
@@ -243,14 +257,14 @@ def question7():
 
     # float
     answer["a, info gain, ID"] = 1.0
-    answer["b, info gain, Handedness"] = 0.561
+    answer["b, info gain, Handedness"] = 0.5310044
 
     # string: "ID" or "Handedness"
-    answer["c, which attrib"] = "ID"
+    answer["c, which attrib"] = "Handedness"
 
     # answer is a float
-    answer["d, gain ratio, ID"] = 'undefined'
-    answer["e, gain ratio, Handedness"] = 0.561
+    answer["d, gain ratio, ID"] = 0.23137821315975915
+    answer["e, gain ratio, Handedness"] = 0.531
 
     # string: one of 'ID' or 'Handedness' based on gain ratio
     # choose the attribute with the largest gain ratio
@@ -261,7 +275,7 @@ def question7():
 
 # ----------------------------------------------------------------------
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     answers = {}
     answers["q1"] = question1()
     answers["q2"] = question2()
@@ -271,4 +285,4 @@ if __name__ == "__main__":
     answers["q6"] = question6()
     answers["q7"] = question7()
 
-    u.save_dict("answers.pkl", answers)
+    u.save_dict("answers.pkl", answers)
