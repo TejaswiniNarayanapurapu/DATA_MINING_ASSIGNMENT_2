@@ -219,17 +219,17 @@ def question5():
 
     # string: one of 'Model 1' or 'Model 2'
     explain["a"] = "Model 2"
-    explain["a explain"] = "Model 2 has a better testing accuracy, so it handles better unseen data. Model 1 seems to suffer from overfitting, since the training accuracy is so much higher than the testing accuracy."
+    explain["a explain"] = "Model 2 demonstrates superior testing accuracy, suggesting its adeptness in handling unseen data. Conversely, Model 1 appears to be afflicted by overfitting, as evidenced by its significantly higher training accuracy compared to its testing accuracy."
 
     # string: one of 'Model 1' or 'Model 2'
     explain["b"] = "Model 2"
-    explain["b explain"] = "Model 2 once more. The measures provided are just the averages of the two datasets' accuracies. Both the models have been trained on Dataset A, so they will always get them right, but Model 2 still has a higher accuracy when it comes to Dataset B, the real unseen data."
+    explain["b explain"] = "Once again, for Model 2, the figures presented represent the average accuracies across the two datasets. While both models have been trained on Dataset A, ensuring high accuracy with that data, Model 2 exhibits superior performance with Dataset B, which represents real unseen data."
 
     explain["c similarity"] = "Incorporation of Model Complexity"
-    explain["c similarity explain"] = "Both MDL and pessimistic error estimate mechanisms are designed to penalize the complexity of a decision tree. They aim to find a balance between the tree's ability to fit the training data and its size or complexity, under the assumption that simpler models generalize better to unseen data."
+    explain["c similarity explain"] = "Both the Minimum Description Length (MDL) and pessimistic error estimate mechanisms are crafted to penalize the complexity of a decision tree. Their objective is to strike a balance between the tree's capacity to fit the training data and its size or complexity, operating under the premise that simpler models tend to generalize more effectively to unseen data."
 
     explain["c difference"] = "Approach to Model Complexity"
-    explain["c difference explain"] = "MDL Principle involves a trade-off between the goodness of fit of the model to the data and the complexity of the model itself, where complexity is measured in terms of the length of the description needed to encode the model. Pessimistic Error Estimate, on the other hand, directly modifies the error estimate of a decision tree by adding a penalty term that increases with the complexity of the tree (for example, the number of leaf nodes)."
+    explain["c difference explain"] = "The MDL Principle involves a balance between the model's goodness of fit to the data and its inherent complexity, with complexity assessed by the length of the description required to encode the model. Conversely, the Pessimistic Error Estimate method adjusts the error estimate of a decision tree by augmenting it with a penalty term that rises in tandem with the tree's complexity, such as the count of leaf nodes."
 
     return explain
 
