@@ -236,19 +236,19 @@ def question7():
     answer = {}
 
     # float
-    answer["a, info gain, ID"] = 0.
-    answer["b, info gain, Handedness"] = 0.
+    answer["a, info gain, ID"] = 1.0
+    answer["b, info gain, Handedness"] = 0.561
 
     # string: "ID" or "Handedness"
-    answer["c, which attrib"] = ""
+    answer["c, which attrib"] = "ID"
 
     # answer is a float
-    answer["d, gain ratio, ID"] = 0.
-    answer["e, gain ratio, Handedness"] = 0.
+    answer["d, gain ratio, ID"] = 'undefined'
+    answer["e, gain ratio, Handedness"] = 0.561
 
     # string: one of 'ID' or 'Handedness' based on gain ratio
     # choose the attribute with the largest gain ratio
-    answer["f, which attrib"] = ""
+    answer["f, which attrib"] = "Handedness"
 
     return answer
 
@@ -266,4 +266,3 @@ if __name__ == "__main__":
     answers["q7"] = question7()
 
     u.save_dict("answers.pkl", answers)
-
